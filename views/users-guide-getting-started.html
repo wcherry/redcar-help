@@ -1,0 +1,37 @@
+      <h1>User's Guide - Getting Started</h1>
+
+      <div class="wikistyle">
+        <h2 id="20">Getting Started</h2>
+<p>Before using Redcar you must install it. Redcar will work on most Unix, Windows, and Mac platforms. Check the <a href="http://wiki.github.com/danlucraft/redcar/list-of-platforms">website</a> for a list of all platforms Redcar has been <em>tested</em> on (milage may very).</p>
+<h3 id="21">Installation</h3>
+<p>Redcar can be installed on many versions of <a href="#25">Windows</a>, <a href="#24">Unix</a>, and <a href="#23">Mac</a>. Any platform that supports Java should support Redcar. Redcar will install the version of JRuby it needs during installation.</p>
+<h3 id="22">Prerequisites</h3>
+<p>Redcar requires:</p>
+<ul>
+	<li>Ruby 1.8.7 or later to be installed</li>
+	<li>Java 1.4.0 or later to be installed</li>
+</ul>
+<h3 id="23">Installing on OS-X</h3>
+<p>Installation on OS-X should be the same as on Linux.</p>
+<h3 id="24">Installing on Linux</h3>
+<p>Open a command shell and type the following two commands:</p>
+<pre><code>sudo gem install redcar
+sudo redcar install</code></pre>
+<h3 id="25">Installing on Windows</h3>
+<p>Make sure that the Ruby <em>bin</em> directory is in your path (e.g. c:\Ruby1.8.7\bin)</p>
+<p>Open a command prompt and type the following two commands:</p>
+<pre><code>gem install redcar
+redcar install</code></pre>
+<h3 id="26">Building from Source</h3>
+<p>To install the latest version of Redcar directly from the source tree run the following commands</p>
+<pre><code>git clone git://github.com/danlucraft/redcar.git
+cd redcar
+git submodule init
+git submodule update
+jruby bin/redcar install
+jruby -S rake build</code></pre>
+<p>See <a href="http://wiki.github.com/danlucraft/redcar/how-to-contribute">How to Contribute</a> to learn the best practices for contributing the the Redcar Editor project.</p>
+<p>See <a href="http://wiki.github.com/danlucraft/redcar/developing-on-windows">Developing on Windows</a> for tips on setting up github friendly test setup on Windows.</p>
+      </div>
+    </div>
+    

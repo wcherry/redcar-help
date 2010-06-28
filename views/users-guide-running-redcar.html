@@ -1,0 +1,150 @@
+      <h1>User's Guide - Running Redcar</h1>
+
+      <div class="wikistyle">
+        <h2 id="30">Running Redcar</h2>
+<p>Redcar can be run from a shortcut or from the command line.</p>
+<h3 id="31">Common command line options</h3>
+<p>Running Redcar from the command line offers many additional options not exposed through the menu.<br />
+Typing <code>redcar --help</code> gives you the following information</p>
+<pre><code>redcar --help
+Redcar 0.3.6 ( i386-mingw32 )
+Usage: redcar [OPTIONS] [FILE|DIR]*
+ --multiple-instance  Don't attempt to open files and dirs in an already running instance
+ --debug  JRuby debugging mode: activates the profiling commands in the Debug menu
+ --untitled-file=PATH  Open the given file as an untitled tab.
+ --ignore-stdin  Ignore stdin</code></pre>
+<p>In addition the following command line options are available:</p>
+<pre><code>  --font=FONT  Choose font
+  --font-size=SIZE  Choose font point size
+  --theme=THEME  Choose Textmate theme</code></pre>
+<p>A complete list of themes can be found in the <code>${redcar-home}/textmate/themes</code> and <code>~/.redcar/textmate/themes</code> directory.</p>
+<h3 id="32">Navigating the UI</h3>
+<MAP NAME="map1">
+<area HREF="#325" TITLE="Editor Window"  SHAPE="RECT" COORDS="222,85,932,552" />
+<area HREF="#323" TITLE="Directory"  SHAPE="RECT" COORDS="14,51,218,556" />
+<area HREF="#322" TITLE="Menu Bar"  SHAPE="RECT" COORDS="13,26,953,52" />
+<area HREF="#324" TITLE="Tabs"  SHAPE="RECT" COORDS="221,55,952,78" />
+</MAP>
+<p><img src="http://redcar-editor.googlegroups.com/web/users-guide-0.3.6-full-annotated.png" width="100%" height="100%"  USEMAP="#map1" /></p>
+<h4 id="321">Main Window</h4>
+<p>The main window contains all of the other UI elements.</p>
+<h4 id="322">Menu Bar</h4>
+<p>The menu bar is a panel at the top of the main window. It contains 8 sub-menus by default. Plugins my add their own sub-menus or menu-items. See the section on <a href="user-guide-menus#70">Menus</a> for additional information.</p>
+<h4 id="323">Directory</h4>
+<p>The directory panel is only displayed when specifying a directory when opening Redcar or by using the Open Directory command (File &raquo; Open Directory).</p>
+<p>The directory panel displays a tree view of all of the files and sub directories under the selected directory. Directories are listed first and have a folder icon displayed to their left. Click on the little triangle displayed to the left of the folder icon or double click on the directory name or folder icon to open the directory. Click on the little triangle or double click the directory name or icon to close.</p>
+<p>Files are listed second and have a file icon to their left. Double click on the filename or file icon to open the file in a new Tab.</p>
+<h4 id="324">Tabs</h4>
+<p>Tabs or listed across the top of the editor panel. The Tab title is the same as the file name (not including it&#8217;s path). New Tabs are given the label &#8216;untitled&#8217;. To switch between Tabs click on the other Tab&#8217;s tab area. It is also possible to switch between Tabs by using the Previous Tab (Ctrl-Page Up), Next Tab (Ctrl-Page Down), or Switch Tab (Alt-1..9) commands under the View menu.</p>
+<p>The order of Tabs may be changed by dragging a Tab&#8217;s tab area to a new position in the Tab list.</p>
+<p>Tabs display an asterisks before the filename if the file has been modified since the last time it was opened or last saved (commonly referred to as dirty.)</p>
+<h4 id="325">Editor Window</h4>
+<p>The Editor Panel (also referred to the Editor Window) is the main area in Redcar. The Editor Panel is where you will view and edit the source code you are working on. The Editor panel will take on different appearance depending on the <a href="#57">Theme</a> selected. The Editor panel supports common navigation operations (Top, End, Page Down&#8230;), editing operations (Cut-Copy-Paste), Undo, Redo, Syntax Highlighting, and command/snippet completion.</p>
+<h4 id="326">Speed Bars</h4>
+<p>Speed bars are panels displayed at the button of the Editor panel. Only one Speed Bar can be displayed at a time. To close a Speed Bar click on the &#8216;X&#8217; icon at the left end of the Speed Bar.</p>
+<h5 id="3261">Tab Info Speed Bar</h5>
+<p>Grammar<br />
+Tab Size<br />
+Soft Tabs<br />
+Word Wrap<br />
+Margin<br />
+Margin Column</p>
+<h5 id="3262">Goto Line</h5>
+<p>Line Number<br />
+Go Button</p>
+<h5 id="3263">Regex Search</h5>
+<p>Search Term<br />
+Regex<br />
+Match case<br />
+Search Button</p>
+<h3 id="34">Menus</h3>
+<p>The menu system in Redcar is extremly flexible. The menu items described here refer to the most recent version with the default plugins installed. Additonal plugins may add addtional menu items. Keyboard shortcuts are included but may also be changed by additional plugins.</p>
+<h4 id="341">File</h4>
+<p>New   Ctrl-N | Cmd-N</p>
+<p>Opens a new tab in the current edtior window. The tab defaults to Plain Text and the default settings for Word Wrap and Margin width.</p>
+<p>New Window Ctrl-Alt-N | Cmd-Alt-N</p>
+<p>Opens a new editor window.</p>
+<p>Open Ctrl-O | Cmd-O</p>
+<p>Open Directory Ctrl-Shift-O | Cmd-Shift-O</p>
+<p>Open Recent<br />
+Displays a list of the most recently opened files.</p>
+<p>Save Ctrl-S | Cmd-S</p>
+<p>Saves contents of the currently opened tab using the file name of the tab. If the tab does not have a name then a Save-As dialog is displayed.</p>
+<p>Save As Ctrl-Shift-S | Cmd-Shift-S<br />
+Saves the contents of the currently opened tab prompting for a new file name. The tab is renamed to the new file name.</p>
+<p>Close Tab Ctrl-W | Cmd-W<br />
+Closes the currently opened tab. If the tab has unsaved content then you are prompted to save the tab.</p>
+<p>Close Window Ctrl-Shift-W | Cmd-Shift-W<br />
+Closes the currently opened window. All tabs are closed as well. Any tabs with unsaved contents will prompt you to save the data before exiting.</p>
+<p>Close Directory</p>
+<p>Quit Ctrl-Q | Cmd-Q<br />
+Quits all windows. If any of the windows contain tabs with unsaved contents you will be prompted to save the tab before exiting.</p>
+<h4 id="342">Edit</h4>
+<p>Tab Info Ctrl-Shift-E | Cmd-Shift-E<br />
+Displays the Tab Info Speed Bar at the bottom of the Tab window. See <a href="users-guide-running-redcar#3261">Tab Info Speed Bar</a> for more details.</p>
+<p>Undo Ctrl-Z | Cmd-Z<br />
+Undoes the last action.</p>
+<p>Redo Ctrl-Y | Cmd-Y<br />
+Redoes the last undo action.</p>
+<p>Cut Ctrl-X | Cmd-X<br />
+Copy Ctrl-C | Cmd-C<br />
+Paste Ctrl-V | Cmd-V<br />
+Duplicate Region Ctrl-D | Cmd-D<br />
+Top<br />
+Home<br />
+End<br />
+Buttom<br />
+Increase Indent<br />
+Decrease Indent<br />
+Goto Line<br />
+Regex Search<br />
+Repeat Last Search<br />
+Select<br />
+  All<br />
+  Line<br />
+Toggle Block Selection<br />
+Auto Complete<br />
+Menu Auto Complete</p>
+<h4 id="343">Project</h4>
+<p>Find File<br />
+Refresh Directory</p>
+<h4 id="344">Debug</h4>
+<p>Task Manager<br />
+Print Scpone at Cursor</p>
+<h4 id="345">View</h4>
+<p>Appearance<br />
+  Font<br />
+  Font Size<br />
+  Theme</p>
+<h5>New Notebook Ctrl-Shift-N | Cmd-Shift-N</h5>
+<p>Opens a new notebook. Only two notebooks may be opened at a time. Tabs may be moved between notebooks by dragging the Tab&#8217;s tab area from one to the other or by using the <a href="#3454">Move Tab to Other Notebook</a></p>
+<h5>Close Notebook</h5>
+<p>Closes a notebook. At least one notebook must be left open. All of the open Tabs are moved to the remaining notebook.</p>
+<h5>Rotate Notebook</h5>
+<p>Rotates the notebooks between horizontal and vertical orientation.</p>
+<h5 id="3454">Move Tab to Other Notebook Ctrl-Shift-Alt-O | Cmd-Shift-Alt-O</h5>
+<p>Moves the current tab to the other notebook.</p>
+<h5>Switch Notebooks Ctrl-Alt-O | Cmd-Alt-O</h5>
+<p>Switches the focus from the active Tab in the active notebook to the active Tab in the inactive notebook.</p>
+<p>Previous Tab<br />
+Next Tab<br />
+Switch Tab<br />
+  Tab 1..9<br />
+Toggle Invisible<br />
+Toggle Line Numbers<br />
+Toggle Annotations</p>
+<h4 id="346">Plugins</h4>
+<p>Plugin Manager<br />
+Reload Again<br />
+Edit Preferences<br />
+<i>Plugin Specfic</i></p>
+<h4 id="347">Bundles</h4>
+<p>Find Snippet</p>
+<h4 id="348">Help</h4>
+<p>About<br />
+New in This Version</p>
+<h3 id="35">Themes</h3>
+<p>Themes allow you to change the appearance of the Editor panel, they do not affect the appearance of the rest of the application.</p>
+      </div>
+    </div>
+    

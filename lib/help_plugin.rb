@@ -25,8 +25,28 @@ module Redcar
       def title
         "Help"
       end
-
+      
+      def render(name, id=nil)
+        rhtml = ERB.new(File.read(File.join(File.dirname(__FILE__), "..", "views", name)))
+        rhtml.result(binding)
+      end
+      
       def index
+        puts "INDEX"
+        rhtml = ERB.new(File.read(File.join(File.dirname(__FILE__), "..", "views", "index.html.erb")))
+        name = "users-guide-bundles"
+        rhtml.result(binding)
+      end
+      
+      def forward
+        cgi = CGI.new
+        name = cgi["name"]
+        id = cgi["id"]
+        if name.nil? 
+          puts "No content name specified, defaulting to users-guide-bundles"
+          name = "users-guide-bundles"
+        end
+        puts "Forwarding to #{name}"
         rhtml = ERB.new(File.read(File.join(File.dirname(__FILE__), "..", "views", "index.html.erb")))
         rhtml.result(binding)
       end
