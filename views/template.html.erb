@@ -1,0 +1,22 @@
+<html>
+<head>
+  <link href="file://<%= base_path %>/users-guide.css" media="screen" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <div id="main">
+    <div class="site">
+      <div id="guides">
+        <div class="guide">
+          <div class="main">
+            <!-- main content -->
+            <%= if(name == nil) then "No page to render" else render("#{name}.html") end %>
+          </div>
+          <div class="sidebar">
+            <%= render("toc.html")  %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

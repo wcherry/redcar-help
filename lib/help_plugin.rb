@@ -13,7 +13,7 @@ module Redcar
     end
 
     class ViewUserManualOnlineCommand < Redcar::Command
-      def execute
+      def execute   # Should forward to: http://wiki.github.com/danlucraft/redcar/users-guide
         controller = Controller.new
         tab = win.new_tab(HtmlTab)
         tab.html_view.controller = controller
@@ -27,27 +27,25 @@ module Redcar
       end
       
       def render(name, id=nil)
+        base_path = File.join(File.dirname(__FILE__), "..", "views")
         rhtml = ERB.new(File.read(File.join(File.dirname(__FILE__), "..", "views", name)))
         rhtml.result(binding)
       end
       
       def index
-        puts "INDEX"
-        rhtml = ERB.new(File.read(File.join(File.dirname(__FILE__), "..", "views", "index.html.erb")))
-        name = "users-guide-bundles"
-        rhtml.result(binding)
+        forward({"name" => "users-guide-getting-started", "id" => "10"})
       end
       
-      def forward
-        cgi = CGI.new
-        name = cgi["name"]
-        id = cgi["id"]
-        if name.nil? 
+      def forward(params)
+        base_path = File.join(File.dirname(__FILE__), "..", "views")
+        name = params["name"]
+        id = params[:id]
+        if name.nil? or name.length < 1
           puts "No content name specified, defaulting to users-guide-bundles"
-          name = "users-guide-bundles"
+          name = "users-guide-getting-started"
         end
         puts "Forwarding to #{name}"
-        rhtml = ERB.new(File.read(File.join(File.dirname(__FILE__), "..", "views", "index.html.erb")))
+        rhtml = ERB.new(File.read(File.join(File.dirname(__FILE__), "..", "views", "template.html.erb")))
         rhtml.result(binding)
       end
     end
@@ -60,7 +58,7 @@ module Redcar
         #sub_menu "Plugins" do
         sub_menu "Help" do
           item "View User Manual", Help::ViewUserManualCommand
-          item "View User Manual (Online)", Help::ViewUserManualOnlineCommand
+          #item "View User Manual (Online)", Help::ViewUserManualOnlineCommand
         end
       end
       #end
